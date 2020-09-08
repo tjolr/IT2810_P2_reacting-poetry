@@ -1,0 +1,18 @@
+.General-container {
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
+
+@media screen and (min-width: 37.5em) {
+  .General-container {
+    padding-left: 1.2vw;
+    padding-right: 1.2vw;
+  }
+}
+
+@media screen and (min-width: 75em) {
+  .General-container {
+    padding-left: 20vw;
+    padding-right: 20vw;
+  }
+}

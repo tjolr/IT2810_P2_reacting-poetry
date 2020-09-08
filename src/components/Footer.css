@@ -1,0 +1,31 @@
+.Footer-container {
+  color: white;
+  height: min-content;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.Footer-header {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.Footer-text-top {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.Footer-text-bottom {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.Footer-link:visited,
+.Footer-link:hover,
+.Footer-link:link,
+.Footer-link:active {
+  color: white;
+}

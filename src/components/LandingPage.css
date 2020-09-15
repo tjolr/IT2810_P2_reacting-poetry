@@ -1,0 +1,99 @@
+.LandingPage-container {
+  flex-grow: 1;
+  background: linear-gradient(
+    -45deg,
+    #fde3e3,
+    #fddfdf,
+    #feecec,
+    #fcc5c5,
+    #fdd8d8
+  );
+  background-size: 400% 400%;
+  animation: gradient 10s ease 0s infinite alternate;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.LandingPage-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.LandingPage-header h1 {
+  white-space: nowrap;
+  margin: 0;
+}
+
+.LandingPage-button-container {
+  padding: 1.5rem;
+}
+
+.LandingPage-button {
+  padding: 1rem 2rem;
+  border: none;
+  background: linear-gradient(
+    -45deg,
+    #fde3e3,
+    #fddfdf,
+    #feecec,
+    #fcc5c5,
+    #fdd8d8
+  );
+  background-size: 300% 300%;
+  animation: gradient 5s ease 0s infinite alternate;
+  transition: 0.5s;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: 1px solid #615658;
+  font-family: "Roboto Slab", serif;
+}
+
+@keyframes gradient {
+  from {
+    background-position: 100% 100%;
+  }
+  to {
+    background-position: 0% 0%;
+  }
+}
+
+@media screen and (min-width: 37.5em) {
+  .LandingPage-header h1 {
+    font-size: 3rem;
+  }
+
+  .LandingPage-button {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 75em) {
+  .LandingPage-header h1 {
+    font-size: 4rem;
+  }
+
+  .LandingPage-button {
+    background: #fdd8d8;
+    transition: 0s;
+    border: 1px solid #615658;
+    font-size: 1.5rem;
+  }
+
+  .LandingPage-button:hover {
+    background: linear-gradient(
+      -45deg,
+      #fde3e3,
+      #fddfdf,
+      #feecec,
+      #fcc5c5,
+      #fdd8d8
+    );
+    background-size: 300% 300%;
+    animation: gradient 5s ease 0s infinite alternate;
+    border: 1px solid #615658;
+  }
+}

@@ -1,9 +1,10 @@
-import React from "react";
-import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import LandingPage from "./components/LandingPage";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import React from 'react';
+import './App.css';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import LandingPage from './components/LandingPage';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import GalleryPage from './components/GalleryPage';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <div className="App-content">
           <Switch>
             <Route path="/gallery">
-              <div>gallery</div>
+              <GalleryPage />
             </Route>
             <Route path="/">
               <LandingPage />

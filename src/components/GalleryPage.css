@@ -1,0 +1,10 @@
+.GalleryPage-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+.GalleryPage-title {
+  text-align: center;
+}

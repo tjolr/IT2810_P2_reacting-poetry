@@ -11,6 +11,8 @@
 .App-content {
   flex: 1 0 auto;
   display: flex;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .App-footer {

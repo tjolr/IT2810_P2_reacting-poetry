@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <div className="bg-primary-3 Navbar-container General-container">
       <div>
-        <span className="Navbar-title">Navbar</span>
+        <span className="Navbar-title">Reacting poetries</span>
       </div>
       <div>
         <Link className="Navbar-navlink" to="/gallery">

@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../ColorPalette.css';
 import '../Container.css';
 import './GalleryItem.css';
 import {FigureType, ColorThemeInterface} from './GalleryItem.dto';
 
 const GalleryItem = (props: any) => {
+  const [showModal, setShowModal] = useState(false);
+  const onItemClick = () => {
+    if (!showModal) {
+      setShowModal(true);
+    }
+  };
+  const onItemClose = () => setShowModal(false);
+
   const figures: any = [];
 
   const generateRectangles = (
@@ -14,6 +22,7 @@ const GalleryItem = (props: any) => {
     for (let i = 1; i <= amount; i++) {
       figures.push(
         <svg
+          key={i}
           className="svg"
           style={{
             animationDuration: `${Math.random() * 17 + 12}s`,
@@ -38,6 +47,7 @@ const GalleryItem = (props: any) => {
 
       figures.push(
         <svg
+          key={i}
           className="svg"
           style={{
             animationDuration: `${Math.random() * 26 + 10}s`,
@@ -63,6 +73,7 @@ const GalleryItem = (props: any) => {
     for (let i = 1; i <= amount; i++) {
       figures.push(
         <svg
+          key={i}
           className="svg"
           style={{
             animationDuration: `${Math.random() * 20 + 7}s`,
@@ -87,6 +98,7 @@ const GalleryItem = (props: any) => {
 
       figures.push(
         <svg
+          key={i}
           className="svg"
           style={{
             animationDuration: `${Math.random() * 10 + 9}s`,
@@ -114,7 +126,7 @@ const GalleryItem = (props: any) => {
 
   const generateFigures = (
     amount: number,
-    colorTheme: any,
+    colorTheme: ColorThemeInterface,
     figureType = null
   ) => {
     let chosenFigureType: FigureType | null;
@@ -139,13 +151,44 @@ const GalleryItem = (props: any) => {
 
   return (
     <div
-      className={`GalleryItem-item ${props.colorTheme}`}
+      className={
+        !showModal
+          ? `GalleryItem-item GalleryItem-item-no-modal ${props.colorTheme}`
+          : `GalleryItem-item ${props.colorTheme}`
+      }
       style={{
         background: `linear-gradient(130deg,${props.colorTheme.color1}, ${props.colorTheme.color2})`,
       }}
+      onClick={onItemClick}
     >
       <h2 className="GalleryItem-title">{props.poem.title}</h2>
       {figures}
+      {showModal ? (
+        <div id="myModal" className="GalleryItem-modal">
+          <div
+            className="GalleryItem-modal-content"
+            style={{
+              background: `linear-gradient(200deg,${props.colorTheme.color1}, ${props.colorTheme.color2})`,
+            }}
+          >
+            <span className="GalleryItem-close" onClick={onItemClose}>
+              lukk
+            </span>
+            <h1 className="GalleryItem-poem-title">{props.poem.title}</h1>
+            <p className="GalleryItem-poem-author">- {props.poem.author}</p>
+            {props.poem.lines
+              ? props.poem.lines.map(line => (
+                  <p
+                    className="GalleryItem-poem-text"
+                    key={line + Math.random()}
+                  >
+                    {line}
+                  </p>
+                ))
+              : null}
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };

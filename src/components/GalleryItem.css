@@ -1,5 +1,5 @@
 .GalleryItem-item {
-  min-width: 17rem;
+  width: 17rem;
   height: 20rem;
   padding: 1rem;
   border-radius: 5px;
@@ -31,6 +31,7 @@
 }
 
 .GalleryItem-title {
+  text-align: center;
   z-index: 1;
 }
 
@@ -79,16 +80,17 @@
   cursor: pointer;
 }
 .GalleryItem-poem-title {
+  font-size: 1.2rem;
   text-align: center;
-  margin-bottom: 0.2rem;
+  margin-bottom: 1.5rem;
 }
 
 .GalleryItem-poem-author {
   font-style: italic;
   font-size: 1rem;
-  text-align: center;
-  margin-top: 0.3rem;
-  margin-bottom: 1.5rem;
+  text-align: right;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
 }
 
 .GalleryItem-poem-text {
@@ -98,11 +100,27 @@
   margin-bottom: 0.3rem;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (orientation: landscape) {
+  .GalleryItem-item {
+    width: 29rem;
+    height: 17rem;
+  }
+}
+
+@media screen and (min-width: 37.5em) and (orientation: portrait) {
+  .GalleryItem-item {
+    width: 19rem;
+  }
+
   .GalleryItem-modal-content {
     padding: 2.5rem;
     width: 65%; /* Could be more or less, depending on screen size */
   }
+
+  .GalleryItem-poem-title {
+    font-size: 1.6rem;
+  }
+
   .GalleryItem-poem-author {
     font-size: 1.3rem;
   }
@@ -113,15 +131,35 @@
 }
 
 @media screen and (min-width: 75em) {
+  .GalleryItem-item {
+    width: 21rem;
+  }
   .GalleryItem-modal-content {
     padding: 3rem;
     width: 50%; /* Could be more or less, depending on screen size */
   }
+
+  .GalleryItem-poem-title {
+    font-size: 1.9rem;
+  }
+
   .GalleryItem-poem-author {
     font-size: 1.4rem;
   }
 
   .GalleryItem-poem-text {
     font-size: 1.7rem;
+  }
+}
+
+@media screen and (min-width: 37.5em) {
+  .Navbar-title {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (min-width: 75em) {
+  .Navbar-title {
+    font-size: 1.9rem;
   }
 }

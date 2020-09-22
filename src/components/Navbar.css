@@ -6,7 +6,7 @@
 }
 
 .Navbar-title {
-  font-size: 2rem;
+  font-size: 1.3rem;
   color: white;
 }
 
@@ -15,4 +15,15 @@
   text-decoration: none;
   color: white;
   font-size: 1rem;
+}
+@media screen and (min-width: 37.5em) {
+  .Navbar-title {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (min-width: 75em) {
+  .Navbar-title {
+    font-size: 1.9rem;
+  }
 }

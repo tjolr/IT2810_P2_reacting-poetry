@@ -5,6 +5,7 @@ import './GalleryPage.css';
 import '../General.css';
 import GalleryItem from './GalleryItem';
 import { ColorTheme } from './GalleryItem.dto';
+import { useWebStorage, StorageType } from '../utills/LocalStorage';
 
 interface Poem {
   title: string;
@@ -12,16 +13,24 @@ interface Poem {
   lines: string[];
 }
 
-enum FigureAmount {
-  Few = 5,
-  Many = 20,
-}
-
 const GalleryPage = () => {
-  const [figureAmount, setFigureAmount] = useState<FigureAmount | number>(
-    FigureAmount.Few
+  const [figureAmount, setFigureAmount] = useWebStorage(
+    'FigureAmount',
+    5,
+    StorageType.SessionStorage
   );
-  const [colorTheme, setColorTheme] = useState(ColorTheme.theme1);
+
+  const [colorTheme, setColorTheme] = useWebStorage(
+    'Theme',
+    ColorTheme.theme1,
+    StorageType.LocalStorage
+  );
+  const [complementaryTheme, setComplementaryTheme] = useWebStorage(
+    'ComplementaryTheme',
+    true,
+    StorageType.LocalStorage
+  );
+
   const [poems, setPoems] = useState<Poem[]>([]);
 
   useEffect(() => {
@@ -37,15 +46,22 @@ const GalleryPage = () => {
     setFigureAmount(target.valueAsNumber);
   };
 
+  const onComplementaryToggle = () => {
+    setComplementaryTheme(!complementaryTheme);
+  };
+
   return (
     <div className="General-container">
       <h1 className="GalleryPage-title">Gallery</h1>
       <div className="GalleryPage-actions">
-        <div className="dropdown">
-          <button className="dropbtn" style={{ background: colorTheme.color1 }}>
+        <div className="GalleryPage-dropdown">
+          <button
+            className="GalleryPage-dropbtn"
+            style={{ background: colorTheme.color1 }}
+          >
             Theme: {colorTheme.name}
           </button>
-          <div className="dropdown-content">
+          <div className="GalleryPage-dropdown-content">
             <button onClick={() => setColorTheme(ColorTheme.theme1)}>
               {ColorTheme.theme1.name}
             </button>
@@ -59,19 +75,31 @@ const GalleryPage = () => {
         </div>
 
         <div>
-          <p className="text-center">Number of figures:</p>
+          <p className="text-center GalleryPage-figure-amount-meta">
+            Number of figures:
+          </p>
           <input
             id="typeinp"
             type="range"
-            className="slider"
-            min={FigureAmount.Few}
-            max={FigureAmount.Many}
+            className="GalleryPage-slider"
+            min={5}
+            max={25}
             defaultValue={figureAmount}
             step={5}
             onMouseUp={updateFigureAmount}
             onTouchEnd={updateFigureAmount}
           />
           <span className="GalleryPage-figure-amount"> {figureAmount}</span>
+        </div>
+        <div>
+          <button
+            className={`GalleryPage-complementary-btn ${
+              complementaryTheme ? 'GalleryPage-complementary-btn-fancy' : ''
+            }`}
+            onClick={onComplementaryToggle}
+          >
+            Fancymode: {complementaryTheme ? 'on' : 'off'}
+          </button>
         </div>
       </div>
       <div className="GalleryPage-container">
@@ -81,6 +109,7 @@ const GalleryPage = () => {
               key={d.title}
               poem={d}
               colorTheme={colorTheme}
+              complementaryTheme={complementaryTheme}
               amount={figureAmount}
               figureType={null}
             />

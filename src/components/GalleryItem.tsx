@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import '../ColorPalette.css';
 import '../Container.css';
 import './GalleryItem.css';
-import {FigureType, ColorThemeInterface} from './GalleryItem.dto';
+import { FigureType, ColorThemeInterface } from './GalleryItem.dto';
 
 const GalleryItem = (props: any) => {
   const [showModal, setShowModal] = useState(false);
+
   const onItemClick = () => {
     if (!showModal) {
       setShowModal(true);
@@ -32,7 +33,7 @@ const GalleryItem = (props: any) => {
             width: `${Math.random() * 3 + 1.5}rem`,
             height: `${Math.random() * 3 + 1.5}rem`,
             borderRadius: '5px',
-            background: colorTheme.color1,
+            background: colorTheme.figureColor,
           }}
         >
           <rect width="100%" height="100%" x="0" y="0" />
@@ -57,7 +58,7 @@ const GalleryItem = (props: any) => {
             width: `${sideLength}rem`,
             height: `${sideLength}rem`,
             borderRadius: '5px',
-            background: colorTheme.color1,
+            background: colorTheme.figureColor,
           }}
         >
           <rect width="100%" height="100%" x="0" y="0" />
@@ -83,7 +84,7 @@ const GalleryItem = (props: any) => {
             width: `${Math.random() * 3 + 1.5}rem`,
             height: `${Math.random() * 3 + 1.5}rem`,
             borderRadius: '100%',
-            background: colorTheme.color1,
+            background: colorTheme.figureColor,
           }}
         >
           <ellipse cx="50%" cy="50%" rx="100%" ry="50%" />
@@ -108,7 +109,7 @@ const GalleryItem = (props: any) => {
             width: `${sideLength}rem`,
             height: `${sideLength}rem`,
             borderRadius: '100%',
-            background: colorTheme.color1,
+            background: colorTheme.figureColor,
           }}
         >
           <circle cx="50%" cy="50%" r="45%" />
@@ -134,6 +135,12 @@ const GalleryItem = (props: any) => {
       chosenFigureType = randomEnumValue(FigureType);
     } else {
       chosenFigureType = figureType;
+    }
+
+    if (!props.complementaryTheme) {
+      colorTheme.figureColor = colorTheme.color1;
+    } else if (props.complementaryTheme) {
+      colorTheme.figureColor = colorTheme.complementary;
     }
 
     if (chosenFigureType === FigureType.Rectangle) {
@@ -175,9 +182,8 @@ const GalleryItem = (props: any) => {
               lukk
             </span>
             <h1 className="GalleryItem-poem-title">{props.poem.title}</h1>
-            <p className="GalleryItem-poem-author">- {props.poem.author}</p>
             {props.poem.lines
-              ? props.poem.lines.map(line => (
+              ? props.poem.lines.map((line) => (
                   <p
                     className="GalleryItem-poem-text"
                     key={line + Math.random()}
@@ -186,6 +192,7 @@ const GalleryItem = (props: any) => {
                   </p>
                 ))
               : null}
+            <p className="GalleryItem-poem-author">- {props.poem.author}</p>
           </div>
         </div>
       ) : null}

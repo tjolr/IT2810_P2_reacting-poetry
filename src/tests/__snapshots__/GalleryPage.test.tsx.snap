@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders correctly 1`] = `
+<div
+  className="General-container"
+>
+  <h1
+    className="GalleryPage-title"
+  >
+    Gallery
+  </h1>
+  <div
+    className="GalleryPage-actions"
+  >
+    <div
+      className="dropdown"
+    >
+      <button
+        className="dropbtn"
+        style={
+          Object {
+            "background": "#fcc5c5",
+          }
+        }
+      >
+        Theme: 
+        Pink
+      </button>
+      <div
+        className="dropdown-content"
+      >
+        <button
+          onClick={[Function]}
+        >
+          Pink
+        </button>
+        <button
+          onClick={[Function]}
+        >
+          Green
+        </button>
+        <button
+          onClick={[Function]}
+        >
+          Yellow
+        </button>
+      </div>
+    </div>
+    <div>
+      <p
+        className="text-center"
+      >
+        Number of figures:
+      </p>
+      <input
+        className="slider"
+        defaultValue={5}
+        id="typeinp"
+        max={20}
+        min={5}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        step={5}
+        type="range"
+      />
+      <span
+        className="GalleryPage-figure-amount"
+      >
+         
+        5
+      </span>
+    </div>
+  </div>
+  <div
+    className="GalleryPage-container"
+  />
+</div>
+`;

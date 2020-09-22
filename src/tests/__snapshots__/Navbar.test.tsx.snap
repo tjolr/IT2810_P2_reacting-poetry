@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders correctly 1`] = `
+<div
+  className="bg-primary-3 Navbar-container General-container"
+>
+  <div>
+    <span
+      className="Navbar-title"
+    >
+      Reacting poetries
+    </span>
+  </div>
+  <div>
+    <a
+      className="Navbar-navlink"
+      href="/gallery"
+      onClick={[Function]}
+    >
+      Gallery
+    </a>
+    <a
+      className="Navbar-navlink"
+      href="/"
+      onClick={[Function]}
+    >
+      Home
+    </a>
+  </div>
+</div>
+`;

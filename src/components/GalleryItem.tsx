@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../ColorPalette.css';
 import '../Container.css';
 import './GalleryItem.css';
@@ -13,6 +13,12 @@ const GalleryItem = (props: any) => {
     if (!showModal) {
       setShowModal(true);
     }
+  };
+
+  const onFavoriteClick = () => {
+    if (!props.poem.isFavorite) {
+    }
+    props.onChange(props.poem);
   };
   const onItemClose = () => setShowModal(false);
 
@@ -173,7 +179,7 @@ const GalleryItem = (props: any) => {
       <h2 className="GalleryItem-title">{props.poem.title}</h2>
       {figures}
       {showModal ? (
-        <div id="myModal" className="GalleryItem-modal">
+        <div className="GalleryItem-modal">
           <div
             className="GalleryItem-modal-content"
             style={{
@@ -195,6 +201,14 @@ const GalleryItem = (props: any) => {
                 ))
               : null}
             <p className="GalleryItem-poem-author">- {props.poem.author}</p>
+            <span
+              className="GalleryPage-favorite-btn"
+              onClick={onFavoriteClick}
+            >
+              <i
+                className={`${props.poem.isFavorite ? 'fas' : 'far'} fa-heart`}
+              ></i>
+            </span>
           </div>
           <audio autoPlay loop>
             <source src={props.mp3} type="audio/mpeg"></source>

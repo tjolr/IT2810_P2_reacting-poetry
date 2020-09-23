@@ -1,3 +1,17 @@
+.GalleryPage-loading-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.GalleryPage-loading-text {
+  font-size: 4rem;
+  margin: 15vh auto;
+  display: block;
+}
+
 .GalleryPage-container {
   display: flex;
   flex-wrap: wrap;
@@ -56,13 +70,37 @@
   font-size: 1.3rem;
 }
 
+.GalleryPage-favorite-btn {
+  display: block;
+  text-align: center;
+  font-size: 2.5rem;
+  color: rgb(223, 88, 88);
+  transition: 0.2s;
+}
+.GalleryPage-favorite-btn > i {
+  transition: 0.1s;
+}
+
+.GalleryPage-favorite-btn > i:hover {
+  color: rgb(197, 61, 61);
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
 .GalleryPage-actions {
   display: flex;
-  flex-direction: column-reverse;
-  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
+
+.GalleryPage-actions > div {
+  min-width: 40vw;
+  margin-top: 0.5rem;
+}
+
 .GalleryPage-dropbtn {
   padding: 0.8rem;
   margin-top: 0.4rem;
@@ -194,6 +232,11 @@
 @media screen and (min-width: 37.5em) {
   .GalleryPage-actions {
     flex-direction: row;
+  }
+
+  .GalleryPage-actions > div {
+    min-width: min-content;
+    margin-top: 0.5rem;
   }
   .GalleryPage-dropbtn {
     padding: 1rem;

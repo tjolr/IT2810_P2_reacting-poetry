@@ -5,6 +5,8 @@ export enum StorageType {
   SessionStorage = 'sessionStorage',
 }
 
+/* Local storage code snippet from dev.to: https://dev.to/sanderdebr/building-a-custom-react-localstorage-hook-2bja */
+
 export const useWebStorage = (key, initialValue, storageType: StorageType) => {
   const [storedValue, setStoredValue] = useState(() => {
     try {
@@ -29,5 +31,6 @@ export const useWebStorage = (key, initialValue, storageType: StorageType) => {
 
   return [storedValue, setValue];
 };
+/* end of code snippet */
 
 export default useWebStorage;

@@ -1,12 +1,14 @@
 .General-container {
   padding-left: 0.3rem;
   padding-right: 0.3rem;
+  width: 99.4vw;
 }
 
 @media screen and (min-width: 67.5em) {
   .General-container {
     padding-left: 1.2vw;
     padding-right: 1.2vw;
+    width: 97.6vw;
   }
 }
 
@@ -14,5 +16,6 @@
   .General-container {
     padding-left: 12vw;
     padding-right: 12vw;
+    width: 76vw;
   }
 }

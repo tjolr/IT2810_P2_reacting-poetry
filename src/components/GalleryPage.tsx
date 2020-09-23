@@ -7,6 +7,18 @@ import GalleryItem from './GalleryItem';
 import { ColorTheme } from './GalleryItem.dto';
 import { useWebStorage, StorageType } from '../utills/LocalStorage';
 
+const mp3s: NodeRequire[] = [];
+mp3s[0] = require('../assets/testing.mp3');
+mp3s[1] = require('../assets/testing.mp3');
+mp3s[2] = require('../assets/testing.mp3');
+mp3s[3] = require('../assets/testing.mp3');
+mp3s[4] = require('../assets/testing.mp3');
+mp3s[5] = require('../assets/testing.mp3');
+mp3s[6] = require('../assets/testing.mp3');
+mp3s[7] = require('../assets/testing.mp3');
+mp3s[8] = require('../assets/testing.mp3');
+mp3s[9] = require('../assets/testing.mp3');
+
 interface Poem {
   title: string;
   author: string;
@@ -104,7 +116,7 @@ const GalleryPage = () => {
       </div>
       <div className="GalleryPage-container">
         {poems ? (
-          poems.map((d) => (
+          poems.map((d, index) => (
             <GalleryItem
               key={d.title}
               poem={d}
@@ -112,6 +124,7 @@ const GalleryPage = () => {
               complementaryTheme={complementaryTheme}
               amount={figureAmount}
               figureType={null}
+              mp3={mp3s[index]}
             />
           ))
         ) : (

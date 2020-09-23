@@ -4,6 +4,8 @@ import '../Container.css';
 import './GalleryItem.css';
 import { FigureType, ColorThemeInterface } from './GalleryItem.dto';
 
+const mp3_file = require('../assets/testing.mp3');
+
 const GalleryItem = (props: any) => {
   const [showModal, setShowModal] = useState(false);
 
@@ -194,6 +196,9 @@ const GalleryItem = (props: any) => {
               : null}
             <p className="GalleryItem-poem-author">- {props.poem.author}</p>
           </div>
+          <audio autoPlay loop>
+            <source src={props.mp3} type="audio/mpeg"></source>
+          </audio>
         </div>
       ) : null}
     </div>

@@ -1,10 +1,17 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 import '../ColorPalette.css';
 import '../Container.css';
+import GlobalLangContext, { translations } from '../utills/GlobalLangContext';
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const lang = useContext(GlobalLangContext);
+
+  const handleToggleLang = () => {
+    props.onLangToggle();
+  };
+
   return (
     <div className="bg-primary-3 Navbar-container General-container">
       <div>
@@ -12,11 +19,14 @@ const Navbar = () => {
       </div>
       <div>
         <Link className="Navbar-navlink" to="/gallery">
-          Gallery
+          {translations[lang].gallery}
         </Link>
         <Link className="Navbar-navlink" to="/">
-          Home
+          {translations[lang].home}
         </Link>
+        <span onClick={handleToggleLang} className="Navbar-lang-btn">
+          <i className="fas fa-globe"></i>
+        </span>
       </div>
     </div>
   );

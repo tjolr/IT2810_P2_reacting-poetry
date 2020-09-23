@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import '../ColorPalette.css';
 import '../Container.css';
 import './GalleryItem.css';
-import { FigureType, ColorThemeInterface } from './GalleryItem.dto';
+import { FigureType } from './FigureType.dto';
+import { ColorThemeInterface } from '../utills/GalleryTheme';
+import GlobalLangContext, { translations } from '../utills/GlobalLangContext';
 
 const mp3_file = require('../assets/testing.mp3');
 
 const GalleryItem = (props: any) => {
+  const lang = useContext(GlobalLangContext);
+
   const [showModal, setShowModal] = useState(false);
 
   const onItemClick = () => {
@@ -187,7 +191,7 @@ const GalleryItem = (props: any) => {
             }}
           >
             <span className="GalleryItem-close" onClick={onItemClose}>
-              lukk
+              {translations[lang].close}
             </span>
             <h1 className="GalleryItem-poem-title">{props.poem.title}</h1>
             {props.poem.lines

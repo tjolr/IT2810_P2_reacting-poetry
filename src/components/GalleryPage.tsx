@@ -1,12 +1,19 @@
-import React, { useState, MouseEvent, TouchEvent, useEffect } from 'react';
+import React, {
+  useState,
+  MouseEvent,
+  TouchEvent,
+  useEffect,
+  useContext,
+} from 'react';
 import '../ColorPalette.css';
 import '../Container.css';
 import './GalleryPage.css';
 import '../General.css';
 import '../assets/css/all.css';
 import GalleryItem from './GalleryItem';
-import { ColorTheme } from './GalleryItem.dto';
 import { useWebStorage, StorageType } from '../utills/WebStorage';
+import { ColorTheme } from '../utills/GalleryTheme';
+import GlobalLangContext, { translations } from '../utills/GlobalLangContext';
 
 const mp3s: NodeRequire[] = [];
 mp3s[0] = require('../assets/testing.mp3');
@@ -28,6 +35,8 @@ interface Poem {
 }
 
 const GalleryPage = () => {
+  const lang = useContext(GlobalLangContext);
+
   const [colorTheme, setColorTheme] = useWebStorage(
     'Theme',
     ColorTheme.theme1,
@@ -97,24 +106,24 @@ const GalleryPage = () => {
         </div>
       ) : (
         <div className="General-container">
-          <h1 className="GalleryPage-title">Gallery</h1>
+          <h1 className="GalleryPage-title">{translations[lang].gallery}</h1>
           <div className="GalleryPage-actions">
             <div className="GalleryPage-dropdown">
               <button
                 className="GalleryPage-dropbtn"
                 style={{ background: colorTheme.color1 }}
               >
-                Theme: {colorTheme.name}
+                {translations[lang].theme}: {colorTheme.name[lang]}
               </button>
               <div className="GalleryPage-dropdown-content">
                 <button onClick={() => setColorTheme(ColorTheme.theme1)}>
-                  {ColorTheme.theme1.name}
+                  {ColorTheme.theme1.name[lang]}
                 </button>
                 <button onClick={() => setColorTheme(ColorTheme.theme2)}>
-                  {ColorTheme.theme2.name}
+                  {ColorTheme.theme2.name[lang]}
                 </button>
                 <button onClick={() => setColorTheme(ColorTheme.theme3)}>
-                  {ColorTheme.theme3.name}
+                  {ColorTheme.theme3.name[lang]}
                 </button>
               </div>
             </div>
@@ -136,12 +145,15 @@ const GalleryPage = () => {
                 }`}
                 onClick={onComplementaryToggle}
               >
-                Fancymode: {complementaryTheme ? 'on' : 'off'}
+                {translations[lang].fancyMode}:{' '}
+                {complementaryTheme
+                  ? translations[lang].on
+                  : translations[lang].off}
               </button>
             </div>
             <div>
               <p className="text-center GalleryPage-figure-amount-meta">
-                Number of figures:
+                {translations[lang].figAmount}:
               </p>
               <input
                 id="typeinp"

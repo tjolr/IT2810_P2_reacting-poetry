@@ -124,6 +124,26 @@ programmere de dynamisk */
     width: 29rem;
     height: 17rem;
   }
+  .GalleryItem-poem-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .GalleryItem-poem-author {
+    font-size: 0.7rem;
+  }
+
+  .GalleryItem-poem-text {
+    font-size: 0.8rem;
+  }
+
+  .GalleryItem-modal-content {
+    padding: 0.5rem;
+  }
+
+  .fa-heart {
+    margin: 0rem;
+  }
 }
 
 /* Tilsvarende for større skjermer og portrett orientation */

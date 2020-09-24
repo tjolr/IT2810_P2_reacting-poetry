@@ -6,8 +6,6 @@ import { FigureType } from './FigureType.dto';
 import { ColorThemeInterface } from '../utills/GalleryTheme';
 import GlobalLangContext, { translations } from '../utills/GlobalLangContext';
 
-const mp3_file = require('../assets/testing.mp3');
-
 const GalleryItem = (props: any) => {
   const lang = useContext(GlobalLangContext);
 

@@ -16,22 +16,23 @@ import { ColorTheme } from '../utills/GalleryTheme';
 import GlobalLangContext, { translations } from '../utills/GlobalLangContext';
 
 const mp3s: NodeRequire[] = [];
-mp3s[0] = require('../assets/testing.mp3');
-mp3s[1] = require('../assets/testing.mp3');
-mp3s[2] = require('../assets/testing.mp3');
-mp3s[3] = require('../assets/testing.mp3');
-mp3s[4] = require('../assets/testing.mp3');
-mp3s[5] = require('../assets/testing.mp3');
-mp3s[6] = require('../assets/testing.mp3');
-mp3s[7] = require('../assets/testing.mp3');
-mp3s[8] = require('../assets/testing.mp3');
-mp3s[9] = require('../assets/testing.mp3');
+mp3s[0] = require('../assets/0_Oppvask.mp3');
+mp3s[1] = require('../assets/1_Mikro.mp3');
+mp3s[2] = require('../assets/2_Pasta.mp3');
+mp3s[3] = require('../assets/3_Gardin.mp3');
+mp3s[4] = require('../assets/4_Gitar.mp3');
+mp3s[5] = require('../assets/5_Vind.mp3');
+mp3s[6] = require('../assets/6_Vandring.mp3');
+mp3s[7] = require('../assets/7_Bil.mp3');
+mp3s[8] = require('../assets/8_Bok.mp3');
+mp3s[9] = require('../assets/9_Gitter.mp3');
 
 interface Poem {
   title: string;
   author: string;
   lines: string[];
   isFavorite?: boolean;
+  mp3_index?: number;
 }
 
 const GalleryPage = () => {
@@ -67,7 +68,10 @@ const GalleryPage = () => {
     setLoading(true);
     fetch('https://poetrydb.org/linecount,poemcount/8;10')
       .then((res: Response) => res.json())
-      .then((poemData: Poem[]) => setPoems(poemData))
+      .then((poemData: Poem[]) => {
+        poemData.map((poem, index) => (poem.mp3_index = index));
+        setPoems(poemData);
+      })
       .then(() => setLoading(false));
   }, []);
 
@@ -175,7 +179,7 @@ const GalleryPage = () => {
               (showFavorites
                 ? favoritePoems.filter((poem) => poem.isFavorite)
                 : poems
-              ).map((poemObj, index) => (
+              ).map((poemObj: Poem) => (
                 <GalleryItem
                   key={poemObj.title}
                   poem={poemObj}
@@ -184,7 +188,11 @@ const GalleryPage = () => {
                   amount={figureAmount}
                   figureType={null}
                   onChange={addFavoritePoem}
-                  mp3={mp3s[index]}
+                  mp3={
+                    poemObj.mp3_index != undefined
+                      ? mp3s[poemObj.mp3_index]
+                      : null
+                  }
                 />
               ))
             ) : (

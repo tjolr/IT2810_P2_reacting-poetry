@@ -1,78 +1,103 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`it renders correctly 1`] = `
-<div
-  className="General-container"
->
-  <h1
-    className="GalleryPage-title"
-  >
-    Gallery
-  </h1>
+<div>
   <div
-    className="GalleryPage-actions"
+    className="General-container"
   >
-    <div
-      className="dropdown"
+    <h1
+      className="GalleryPage-title"
     >
-      <button
-        className="dropbtn"
-        style={
-          Object {
-            "background": "#fcc5c5",
-          }
-        }
-      >
-        Theme: 
-        Pink
-      </button>
+      Gallery
+    </h1>
+    <div
+      className="GalleryPage-actions"
+    >
       <div
-        className="dropdown-content"
+        className="GalleryPage-dropdown"
       >
         <button
-          onClick={[Function]}
+          className="GalleryPage-dropbtn"
+          style={
+            Object {
+              "background": "#fcc5c5",
+            }
+          }
         >
+          Theme
+          : 
           Pink
         </button>
-        <button
+        <div
+          className="GalleryPage-dropdown-content"
+        >
+          <button
+            onClick={[Function]}
+          >
+            Pink
+          </button>
+          <button
+            onClick={[Function]}
+          >
+            Green
+          </button>
+          <button
+            onClick={[Function]}
+          >
+            Blue
+          </button>
+        </div>
+      </div>
+      <div>
+        <span
+          className="GalleryPage-favorite-btn"
           onClick={[Function]}
         >
-          Green
-        </button>
+          <i
+            className="far fa-heart"
+          />
+        </span>
+      </div>
+      <div>
         <button
+          className="GalleryPage-complementary-btn "
           onClick={[Function]}
         >
-          Yellow
+          Fancymode
+          :
+           
+          off
         </button>
       </div>
+      <div>
+        <p
+          className="text-center GalleryPage-figure-amount-meta"
+        >
+          Number of figures
+          :
+        </p>
+        <input
+          className="GalleryPage-slider"
+          defaultValue={5}
+          max={25}
+          min={5}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          step={5}
+          type="range"
+        />
+        <span
+          className="GalleryPage-figure-amount"
+        >
+           
+          5
+        </span>
+      </div>
     </div>
-    <div>
-      <p
-        className="text-center"
-      >
-        Number of figures:
-      </p>
-      <input
-        className="slider"
-        defaultValue={5}
-        id="typeinp"
-        max={20}
-        min={5}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        step={5}
-        type="range"
-      />
-      <span
-        className="GalleryPage-figure-amount"
-      >
-         
-        5
-      </span>
-    </div>
+    <div
+      className="GalleryPage-container"
+    />
   </div>
-  <div
-    className="GalleryPage-container"
-  />
+  );
 </div>
 `;

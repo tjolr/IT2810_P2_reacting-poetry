@@ -41,6 +41,6 @@ export const translations = {
     welcomeText: 'Velkommen til',
     toGallery: 'Til galleriet',
     noFavorites: 'Du har ikke lagt til noen favoritter enda!',
-    galleryLoading: 'Laster inn gallleri...',
+    galleryLoading: 'Laster inn galleri...',
   },
 };

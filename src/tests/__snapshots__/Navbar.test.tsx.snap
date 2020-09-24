@@ -26,6 +26,14 @@ exports[`it renders correctly 1`] = `
     >
       Home
     </a>
+    <span
+      className="Navbar-lang-btn"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-globe"
+      />
+    </span>
   </div>
 </div>
 `;

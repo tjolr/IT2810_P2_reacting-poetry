@@ -7,12 +7,15 @@ exports[`it renders correctly 1`] = `
   <h2
     className="Footer-header"
   >
-    IT2810 Webutvikling prosjekt 2
+    IT2810 Webutvikling 
+    project
+     2
   </h2>
   <p
     className="Footer-text-top"
   >
-    Created by Balluni & Anesh
+    Created by
+     Balluni & Anesh
   </p>
   <p
     className="Footer-text-bottom"

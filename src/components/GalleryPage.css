@@ -2,22 +2,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Lasteseksjon bruker 100vw => 100 % av viewport sin bredde */
   width: 100vw;
+  /* Samme som over, men med høyde som egenskap */
   height: 100vh;
 }
 
 .GalleryPage-loading-text {
   font-size: 4rem;
-  margin: 15vh auto;
+  margin: auto;
   display: block;
 }
 
 .GalleryPage-container {
   display: flex;
+  /* Items blir flyttet til neste rad når en rad er full */
   flex-wrap: wrap;
   flex-direction: row;
+  /* Fordel seg jevnt med mellomrom i horisontal retning */
   justify-content: space-evenly;
-  gap: 2rem;
+  gap: 1.5rem;
   padding-bottom: 1rem;
 }
 .GalleryPage-title {
@@ -26,13 +30,17 @@
   margin-bottom: 0.3rem;
 }
 
+/* Noe CSS for slider er hentet fra nettsiden: https://www.w3schools.com/howto/howto_js_rangeslider.asp */
 .GalleryPage-slider {
   -webkit-appearance: none;
   height: 0.75rem;
   background: #d3d3d3;
   border-radius: 10px;
+  /* Fjern default outline */
   outline: none;
   opacity: 0.7;
+  /* Transition duration egenskap gjør at f.eks hover
+  effekt virker både før og etter hover. */
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
 }
@@ -42,6 +50,8 @@
   cursor: pointer;
 }
 
+/* CSS for webkit for å sikre at ulike "render-engines" for de forskjellige
+nettleserne skal kunne vise innhold riktig */
 .GalleryPage-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -49,9 +59,11 @@
   height: 1.4rem;
   background: #4c4344;
   cursor: pointer;
+  /* Border-radius 50% for å lage en sirkel */
   border-radius: 50%;
 }
-
+/* CSS for moz for å sikre at ulike "render-engines" for de forskjellige
+nettleserne skal kunne vise innhold riktig */
 .GalleryPage-slider::-moz-range-thumb {
   width: 1.4rem;
   height: 1.4rem;
@@ -70,6 +82,7 @@
   font-size: 1.3rem;
 }
 
+/* Hjerte-knapp */
 .GalleryPage-favorite-btn {
   display: block;
   text-align: center;
@@ -84,6 +97,7 @@
 .GalleryPage-favorite-btn > i:hover {
   color: rgb(197, 61, 61);
   cursor: pointer;
+  /* Hjertet skal vokse litt ved hover */
   transform: scale(1.02);
 }
 
@@ -97,6 +111,9 @@
 }
 
 .GalleryPage-actions > div {
+  /* På mobil skjermer skal det vises to handlinger per rad
+  og derfor settes min-bredde til å være 40 % av viewport bredde,
+  som gjør at det ikke blir mer enn 2 elementer per rad */
   min-width: 40vw;
   margin-top: 0.5rem;
 }
@@ -109,18 +126,24 @@
   cursor: pointer;
   border-radius: 5px;
   transition: 0.2s;
+  /* Font family globalt ville ikke aktiveres innenfor
+  knapp, så derfor må den settes manuelt */
   font-family: 'Roboto Slab', serif;
 }
 .GalleryPage-dropbtn:hover {
+  /* Skygge på knapp ved hover! */
   box-shadow: 4px 8px 16px 4px rgba(0, 0, 0, 0.2);
 }
 
 .GalleryPage-dropdown {
   position: relative;
+  /* Inline block for å ikke bruke hele raden */
   display: inline-block;
 }
 
 .GalleryPage-dropdown-content {
+  /* Dropdown valg skal ikke vises før hover/active, og settes
+  derfor til display none */
   display: none;
   position: absolute;
   border-radius: 3px;
@@ -129,6 +152,8 @@
   background-color: #f5eeee;
   min-width: 11rem;
   box-shadow: 4px 8px 16px 4px rgba(0, 0, 0, 0.2);
+  /* Z-index gjør at innhold blir vist over annet innhold som har
+  lavere z-index. Enkelt og greit Et 3D plan, vis det som er nærmest */
   z-index: 1;
   transition: 0.3s;
 }
@@ -156,6 +181,7 @@
   background-color: #7a5e61;
 }
 
+/* Viser dropdown innhold på hover ved å sette display:block */
 .GalleryPage-dropdown:hover .GalleryPage-dropdown-content {
   display: block;
   cursor: pointer;
@@ -174,6 +200,7 @@
   background: linear-gradient(-45deg, #e2e2e2, #a79191, #c9bfbf);
   font-family: 'Roboto Slab', serif;
   transition: 0.5s;
+  /* Fjern standard kantlinje */
   outline: none;
 }
 
@@ -186,9 +213,13 @@
     #edbbd1,
     #add8e6
   );
-  animation: fancyMode 6s infinite linear;
+  /* Animerer knappen, lengde 6s, infinite antall gjentagelser
+  og animeringskurve ease  */
+  animation: fancyMode 6s infinite ease;
 }
 
+/* Animasjon som scalerer, roterer og flytter elementet
+litt til sidene */
 @keyframes fancyMode {
   0% {
     transform: scale(1);
@@ -229,6 +260,7 @@
   }
 }
 
+/* Media queries! */
 @media screen and (min-width: 37.5em) {
   .GalleryPage-actions {
     flex-direction: row;

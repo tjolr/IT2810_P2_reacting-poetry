@@ -1,3 +1,7 @@
+/* Størrelse og egenskaper for item. 
+Mobile first approach, så dette er for små skjermer
+også endres bredde og størrelse på større skjermer ved 
+media queries lenger ned */
 .GalleryItem-item {
   width: 17rem;
   height: 20rem;
@@ -21,10 +25,14 @@
 .GalleryItem-item-no-modal:hover {
   cursor: pointer;
 }
-.svg {
-  background: rgba(223, 165, 165, 0.877);
-  position: absolute;
 
+/* Hver figur bruker denne klassen, som inneholder blant annet 
+animasjonen osv.
+Resterende css egenskaper settes av Typescript for å kunne
+programmere de dynamisk */
+.svg {
+  position: absolute;
+  /* Skal spinne rundt seg selv, trenger derfor origin center */
   transform-origin: center;
   fill: transparent;
   animation: floatUpwards infinite linear;
@@ -35,6 +43,7 @@
   z-index: 1;
 }
 
+/* Animasjon som brukes for at elementer skal flyte oppover og spinne rundt */
 @keyframes floatUpwards {
   0% {
   }
@@ -47,7 +56,9 @@
 .GalleryItem-modal {
   display: block;
   position: fixed;
+  /* Skal legge seg over andre ting => høy z-index */
   z-index: 2;
+  /* Vil at tint av bakgrunn skal ta opp hele skjermen */
   left: 0;
   top: 0;
   width: 100%;
@@ -60,20 +71,21 @@
   align-items: center;
 }
 
+/* Innhold som skal vise diktet */
 .GalleryItem-modal-content {
-  background-color: #fefefe;
-  margin: 10% auto; /* 15% from the top and centered */
   padding: 1.4rem;
   padding-bottom: 2.2rem;
   width: 80%;
   border-radius: 5px;
 }
 
+/* Knapp for å lukke vindu med dikt */
 .GalleryItem-close {
   color: rgb(68, 68, 68);
   float: right;
   font-size: 1rem;
   font-weight: bold;
+  margin: 0.3rem;
 }
 
 .GalleryItem-close:hover,
@@ -82,6 +94,7 @@
   text-decoration: none;
   cursor: pointer;
 }
+
 .GalleryItem-poem-title {
   font-size: 1.2rem;
   text-align: center;
@@ -104,6 +117,8 @@
   margin-bottom: 0.3rem;
 }
 
+/* Egen media query dersom telefon eller nettbrett er brukt i landskapsmodus
+Ønsker da at item er enda mer rektangelformet */
 @media screen and (orientation: landscape) {
   .GalleryItem-item {
     width: 29rem;
@@ -111,6 +126,7 @@
   }
 }
 
+/* Tilsvarende for større skjermer og portrett orientation */
 @media screen and (min-width: 37.5em) and (orientation: portrait) {
   .GalleryItem-item {
     width: 19rem;
@@ -118,7 +134,7 @@
 
   .GalleryItem-modal-content {
     padding: 2.5rem;
-    width: 65%; /* Could be more or less, depending on screen size */
+    width: 65%;
   }
 
   .GalleryItem-poem-title {
@@ -140,7 +156,7 @@
   }
   .GalleryItem-modal-content {
     padding: 3rem;
-    width: 50%; /* Could be more or less, depending on screen size */
+    width: 50%;
   }
 
   .GalleryItem-poem-title {
@@ -153,17 +169,5 @@
 
   .GalleryItem-poem-text {
     font-size: 1.7rem;
-  }
-}
-
-@media screen and (min-width: 37.5em) {
-  .Navbar-title {
-    font-size: 1.6rem;
-  }
-}
-
-@media screen and (min-width: 75em) {
-  .Navbar-title {
-    font-size: 1.9rem;
   }
 }

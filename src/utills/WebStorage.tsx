@@ -5,8 +5,9 @@ export enum StorageType {
   SessionStorage = 'sessionStorage',
 }
 
-/* Local storage code snippet from dev.to: https://dev.to/sanderdebr/building-a-custom-react-localstorage-hook-2bja */
+/* Web storage code snippet from dev.to: https://dev.to/sanderdebr/building-a-custom-react-localstorage-hook-2bja */
 
+/* Tilpasset til å kunne bruke Local og Session storage i samme funksjon */
 export const useWebStorage = (key, initialValue, storageType: StorageType) => {
   const [storedValue, setStoredValue] = useState(() => {
     try {

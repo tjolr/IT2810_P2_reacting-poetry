@@ -1,3 +1,5 @@
+/* Setter høyde på container, midtstiller teksten vertikalt,
+og velger at barn skal spre seg til sidene med luft mellom */
 .Navbar-container {
   height: 3.5rem;
   display: flex;
@@ -6,24 +8,26 @@
 }
 
 .Navbar-title {
-  font-size: 1.3rem;
+  font-size: 1.17rem;
   color: white;
 }
 
 .Navbar-navlink {
-  margin-left: 1rem;
+  margin-left: 0.4rem;
   text-decoration: none;
   color: white;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .Navbar-lang-btn {
   margin-left: 0.4rem;
-  font-size: 1rem;
+  margin-right: 0.7rem;
+  font-size: 0.95rem;
   color: white;
   transition: 0.3s;
 }
 
+/* Breakpoint til mellomstore skjermer */
 @media screen and (min-width: 37.5em) {
   .Navbar-title {
     font-size: 1.6rem;
@@ -35,6 +39,8 @@
     margin-left: 1rem;
     font-size: 1.3rem;
   }
+  /* Setter på hover her, siden her er det nok musepekere
+  og ikke touch enheter som brukes */
   .Navbar-lang-btn:hover {
     color: rgb(167, 164, 164);
     cursor: pointer;

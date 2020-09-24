@@ -1,3 +1,7 @@
+/* Generell container som legger til avstand på sidene. 
+Ved små skjermer: lite plass på sidene
+Store skjermer: mye plass på sidene */
+
 .General-container {
   padding-left: 0.3rem;
   padding-right: 0.3rem;

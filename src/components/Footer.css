@@ -1,6 +1,8 @@
 .Footer-container {
   color: white;
+  /* Høyde skal være det minste som innholdet trenger */
   height: min-content;
+  /* Bruker 100 % av viewport bredde */
   width: 100vw;
   display: flex;
   align-items: center;

@@ -1,3 +1,23 @@
+interface AllColorThemesInterface {
+  theme1: ColorThemeInterface;
+  theme2: ColorThemeInterface;
+  theme3: ColorThemeInterface;
+}
+
+export interface ColorThemeInterface {
+  color1: string;
+  color2: string;
+  complementary: string;
+  figureColor?: string;
+  name: languageOptions;
+}
+
+export interface languageOptions {
+  english: string;
+  norwegian: string;
+}
+
+/* ColorTheme const that contains colorthemes for the GalleryPage and items */
 export const ColorTheme: AllColorThemesInterface = {
   theme1: {
     color1: '#fcc5c5',
@@ -28,25 +48,7 @@ export const ColorTheme: AllColorThemesInterface = {
   },
 };
 
-interface AllColorThemesInterface {
-  theme1: ColorThemeInterface;
-  theme2: ColorThemeInterface;
-  theme3: ColorThemeInterface;
-}
-
-export interface ColorThemeInterface {
-  color1: string;
-  color2: string;
-  complementary: string;
-  figureColor?: string;
-  name: languageOptions;
-}
-
-export interface languageOptions {
-  english: string;
-  norwegian: string;
-}
-
+/* Languages enum */
 export enum Languages {
   EN = 'english',
   NO = 'norwegian',

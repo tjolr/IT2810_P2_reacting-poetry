@@ -1,5 +1,6 @@
 .LandingPage-container {
   flex-grow: 1;
+  /* Gradient bakgrunn, med ulike varianter av rosa/lyserosa */
   background: linear-gradient(
     -45deg,
     #fde3e3,
@@ -8,7 +9,10 @@
     #fcc5c5,
     #fdd8d8
   );
+  /* Stor bakgrunnstørrelse, slik at man animerer bakgrunn ved å
+  posisjon til bakgrunnen */
   background-size: 400% 400%;
+  /* Her kalles animasjonen */
   animation: gradient 10s ease 0s infinite alternate;
   display: flex;
   flex-direction: column;
@@ -19,6 +23,7 @@
 .LandingPage-header {
   display: flex;
   flex-direction: row;
+  /* Flytt elementer til neste linje ved liten skjerm */
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -44,12 +49,13 @@
     #fdd8d8
   );
   background-size: 300% 300%;
+  /* Tilsvarende animasjon på knapp som på bakgrunn, men litt raskere */
   animation: gradient 5s ease 0s infinite alternate;
   transition: 0.5s;
   cursor: pointer;
   border-radius: 0.5rem;
   border: 1px solid #615658;
-  font-family: "Roboto Slab", serif;
+  font-family: 'Roboto Slab', serif;
 }
 
 @keyframes gradient {

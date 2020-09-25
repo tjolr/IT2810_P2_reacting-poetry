@@ -25,13 +25,13 @@ Når den er ferdig, kan du starte prosjektet med `npm start`.
 Prosjektet er laget med React og Typescript (TS). 
 Det har bare blitt brukt funksjonelle komponenter med ES6 syntax, med unntak av Footer-komponenten som er klassekomponent for å oppfylle teknologikrav.
 
-For å endre state har vi benyttet oss av useState() - hooken, og den har blitt flittig brukt for å endre states i egen komponent, men og for å sende callback-funksjoner som props til barnekomponenter. 
+For å endre state har vi benyttet oss av `useState()` - hooken, og den har blitt flittig brukt for å endre states i egen komponent, men og for å sende callback-funksjoner som props til barnekomponenter. 
 F.eks i GalleryItem brukes callback funksjon for å endre forelderkomponenten GalleryPage sin favoritePoems-state. 
 
-Hooken useEffect() er brukt for å bestemme livssyklusmetoder, og blir blant annet bruk for å gjøre api kall til PoetryDB. 
+Hooken `useEffect()` er brukt for å bestemme livssyklusmetoder, og blir blant annet bruk for å gjøre api kall til PoetryDB. 
 
 Context-apiet er brukt til å endre språk på siden. 
-Vi fant det veldig nyttig å bruke Context for å holde verdien til valgt språk, 
+Vi fant det veldig nyttig å bruke `Context` for å holde verdien til valgt språk, 
 siden alle komponentene som har tekst som vises til bruker trenger å vite hvilket språk den skal vise teksten på, 
 og da er det nyttig å slippe å sende props gjennom alle komponenter, 
 men at man kan heller importere GlobalLanguageContext i riktig komponent og bruke den direkte. 
@@ -56,8 +56,8 @@ Parametriseringen som bruker styrer endrer blant annet farge på svg-elementene 
 ## AJAX
 
 Diktene hentes fra PoetryDB.org, som har et åpent REST-api ute som vi bruker. 
-Til dette bruker vi fetch() som er returnerer et promise. 
-Deretter har vi tre .then() på rad som sørger for å behandle dataen slik vi vil. 
+Til dette bruker vi `fetch()` som er returnerer et promise. 
+Deretter har vi tre `.then()` på rad som sørger for å behandle dataen slik vi vil. 
 For å sørge for at siden venter med å vise noe til vi er ferdig har vi en state som heter isLoading,
 som vi setter til false etter dataene er ferdig behandlet, og deretter blir dataen i galleriet oppdatert. 
 
@@ -65,7 +65,7 @@ For lyd tok vi opp 10 lydfiler selv, og la de til i prosjektet.
 Vi har brukt HTML5 `<audio>` tagen som man enkelt kan bruke for å legge til lyd i nettsider, 
 men vi måtte gjøre noen konfigurasjoner for å få det til å fungere i React, med Typescript. 
 Det går ikke å bare linke direkte til lokale lydfiler i et react-prosjekt, så først måtte lydfilene importeres. 
-Siden vi bruker Typescript måtte dette gjøres med require() istedenfor import(). 
+Siden vi bruker Typescript måtte dette gjøres med `require()` istedenfor `import()`. 
 
 Alle lydfilene ble lagt i en liste, og i Poem-interfacet så ligger det en property som heter mp3_index, 
 som vi bruker til å sende rett lydfil inn i GalleryItem, slik at samme dikt får samme lydfil hele tiden. 
@@ -73,12 +73,12 @@ Lyden begynner å spille i bakgrunn, loopet, når du trykker på et av diktene.
 
 ## HTML Web Storage
 
-Vi har brukt både Localstorage og Sessionstorage fra HTML Web Storage. 
+Vi har brukt både `Localstorage` og `Sessionstorage` fra HTML Web Storage. 
 For å hente og lagre data til Web Storage fulgte vi 
 [denne tutorialen](https://dev.to/sanderdebr/building-a-custom-react-localstorage-hook-2bja).
 Kode som er hentet herfra er kommentert i koden.
 
-Oversikt over brukt av Web Storage:
+Oversikt over bruk av Web Storage:
 
 **Local Storage**:
 - currentLang:
@@ -96,7 +96,7 @@ Oversikt over brukt av Web Storage:
 
 ## Responsive Web Design
 
-Siden er laget responsiv ved stor bruk av spesielt CSS-FlexBox og Media Queries. 
+Siden er laget responsiv ved stor bruk av spesielt `CSS-FlexBox` og `Media Queries`. 
 Vi har utviklet med en “Mobile First Approach”, 
 som vil si at vi har skrevet stiler for mobilskjerm først, 
 også laget Media Queries for Tablet og Desktop størrelser. 
@@ -115,7 +115,7 @@ men vi har satt `column-direction: row`, og `flex-wrap: wrap` til at når skjerm
 så flyter items til andre rader parallellt med skjermbredden. 
 GalleryPage-actions har og en tilsvarende tilnærming for å vise handlinger fint på små og store skjermer. 
 
-Vi har brukt rem som størrelse for å sikre riktig skalering av elementer. 
+Vi har brukt `em` for CSS størrelser i media query breakpoints, og ellers er det brukt `rem`, `vh` og `vw` som størrelser for å sikre riktig skalering av DOM-elementer.
 
 ## Node.js og NPM
 
@@ -139,7 +139,7 @@ På surface og PC la vi skjermen ned i landskapsmodus og opp igjen til portrettm
 Alt dette mens vi gikk gjennom de tre hovedsidene til siden: Hjem, Gallery, og med valgt dikt. 
 
 Generelt sett så fungerte alt slik det skulle, og nettsiden oppdaterer seg avhengig av orientering og størrelse på vinduet. 
-Gjennom testingen fant vi et par svakheter i det responsive designet som vi fikk fikset opp i. 
+Gjennom testingen fant vi et par svakheter i det responsive designet som vi fikk fikset opp i, blant annet skalering av linker i navbar. 
 Vi fant også en edge-case som vi prioriterte å ikke fikse opp i, ettersom det er omtrent ingen som ville brukt nettsiden på en slik måte at de ville oppdaget det. 
 (Dette skjer om du på PC bruker hele bredden, men lar høyden på vinduet bli veldig liten. 
 Om du nå går inn på et dikt så kan det være at det ikke får plass). 
